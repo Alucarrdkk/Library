@@ -6,42 +6,16 @@
             <div class="card" style="width: 13rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                 <div class="px-2 pt-2">
                     <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" class="card-img-top" alt="...">
+                    <button class="btn btn-outline-primary btn-overlay mb-2 me-2" (click)="openModal(content, book)">
+                      Aperçu
+                    </button>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title text-center">{{book.title}}</h5>
                     <div class="d-flex justify-content-between">
                         <p class="align-bottom">10$</p>
                         <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
-                        <button class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content)">
-                            Modal vertically centered
-                        </button>
                     </div>
-                </div>
-            </div>
-        </div>
-
-                <div class="col">
-            <div class="card" style="width: 13rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-                <div class="px-2 pt-2">
-                    <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" class="card-img-top" alt="...">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{book.title}}</h5>
-                    <p class="card-text">{{book.author}}</p>
-                    <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
-                </div>
-            </div>
-        </div>
-
-                <div class="col">
-            <div class="card" style="width: 13rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-                <div class="px-2 pt-2">
-                    <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" class="card-img-top" alt="...">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{book.title}}</h5>
-                    <p class="card-text">{{book.author}}</p>
-                    <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
                 </div>
             </div>
         </div>
@@ -50,14 +24,33 @@
 
 
 <ng-template #content let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title">Modal title</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-	</div>
-	<div class="modal-body">
-		<p>One fine body&hellip;</p>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
-	</div>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="d-flex">
+        <!-- Image à gauche -->
+        <div class="me-3 flex-shrink-0">
+          <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" alt="Produit" class="img-fluid" style="max-width: 200px;">
+        </div>
+
+        <!-- Contenu à droite -->
+        <div class="flex-grow-1">
+          <!-- Titre -->
+          <h1 class="modal-title">{{bookSelected.title}}</h1>
+
+          <!-- Texte descriptif -->
+          <p>{{bookSelected.description}}</p>
+
+          <!-- Barre horizontale -->
+          <hr>
+
+          <!-- Bouton -->
+          <button type="button" class="btn btn-success" (click)="modal.close()">
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-template>
+
+

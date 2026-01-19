@@ -15,6 +15,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class BookComponent implements OnInit {
 
   books: Book[] = [];
+  bookSelected!: Book;
 
   private modalService = inject(NgbModal);
 
@@ -39,8 +40,13 @@ export class BookComponent implements OnInit {
     })
   }
 
-  openVerticallyCentered(content: TemplateRef<any>) {
-		this.modalService.open(content, { centered: true });
-	}
+  openModal(content: any, book: Book) {
+    this.bookSelected = book;
+    this.modalService.open(content, {
+      centered: true,
+      size: 'lg' // sm | lg | xl
+    });
+    console.log(this.bookSelected);
+  }
 
 }
