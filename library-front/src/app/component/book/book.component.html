@@ -1,0 +1,49 @@
+<h1><em>Books :</em></h1>
+<div class="row row-cols-1 row-cols-md-6 g-4">
+    @for (book of books; track book.isbn) 
+    {
+        <div class="col">
+            <div class="card" style="width: 13rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                <div class="px-2 pt-2">
+                    <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{book.title}}</h5>
+                    <div class="d-flex justify-content-between">
+                        <p class="align-bottom">10$</p>
+                        <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Launch demo modal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="col">
+            <div class="card" style="width: 13rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                <div class="px-2 pt-2">
+                    <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <p class="card-text">{{book.author}}</p>
+                    <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
+                </div>
+            </div>
+        </div>
+
+                <div class="col">
+            <div class="card" style="width: 13rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                <div class="px-2 pt-2">
+                    <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <p class="card-text">{{book.author}}</p>
+                    <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
