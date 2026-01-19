@@ -1,0 +1,23 @@
+.sub-category {
+    background: rgb(245, 245, 245);
+    width: 100%;
+    color: rgb(119, 119, 119);
+    padding: 10px 26px;
+    border-right: 0.1px solid rgb(220, 220, 220);
+    border-top: 0.1px solid rgb(220, 220, 220);
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.sub-category:last-child {
+    border-bottom: 0.1px solid rgb(220, 220, 220);
+}
+
+.sub-category:hover {
+    background-color: black;
+    color: white;
+}
+
+.accordion-body{
+    padding: 0;
+}

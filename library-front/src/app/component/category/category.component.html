@@ -3,38 +3,21 @@
 <div class="accordion" id="accordionExample" style="width: 1fr;">
     @for (category of categories; track category.id) 
     {
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#test" aria-expanded="true" aria-controls="test">
-            {{category.name}}
-        </button>
-        </h2>
-        <div id="test" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      <div ngbAccordion>
+        <div ngbAccordionItem>
+          <h2 ngbAccordionHeader>
+            <button ngbAccordionButton>{{category.name}}</button>
+          </h2>
+          <div ngbAccordionCollapse>
+            <div ngbAccordionBody>
+                <ng-template>
+                  @for (child of category.children; track child.id) {
+                    <div class="sub-category">{{child.name}}</div>
+                  }
+                </ng-template>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
     }
-</div>
-
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-
-<div ngbDropdown>
-  <button class="btn btn-secondary" ngbDropdownToggle>
-    Menu
-  </button>
-  <div ngbDropdownMenu>
-    <button ngbDropdownItem>Item 1</button>
-    <button ngbDropdownItem>Item 2</button>
-  </div>
 </div>

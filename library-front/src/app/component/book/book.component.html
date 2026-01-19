@@ -12,8 +12,8 @@
                     <div class="d-flex justify-content-between">
                         <p class="align-bottom">10$</p>
                         <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Launch demo modal
+                        <button class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content)">
+                            Modal vertically centered
                         </button>
                     </div>
                 </div>
@@ -47,3 +47,17 @@
         </div>
     }
 </div>
+
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Modal title</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>One fine body&hellip;</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>

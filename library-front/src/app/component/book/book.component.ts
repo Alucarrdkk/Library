@@ -1,6 +1,9 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, TemplateRef } from '@angular/core';
 import { BookService } from '../../book/book.service';
 import { Book } from '../../book/book.models';
+
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -12,6 +15,8 @@ import { Book } from '../../book/book.models';
 export class BookComponent implements OnInit {
 
   books: Book[] = [];
+
+  private modalService = inject(NgbModal);
 
 
   constructor(private book : BookService, private cdr: ChangeDetectorRef) {
@@ -33,5 +38,9 @@ export class BookComponent implements OnInit {
       },
     })
   }
+
+  openVerticallyCentered(content: TemplateRef<any>) {
+		this.modalService.open(content, { centered: true });
+	}
 
 }

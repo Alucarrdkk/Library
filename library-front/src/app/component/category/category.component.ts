@@ -2,9 +2,12 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { Category } from '../../category/category.models';
 import { CategoryService } from '../../category/category.service';
 
+import { NgbDropdownModule, NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 @Component({
   selector: 'app-category',
-  imports: [],
+  imports: [NgbDropdownModule, NgbAccordionModule],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
 })
