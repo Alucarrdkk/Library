@@ -1,0 +1,22 @@
+.sidebar {
+  width: 250px;          /* largeur par défaut (plus grande que 200px) */
+  min-width: 180px;      /* largeur minimale pour mobile */
+  max-width: 300px;      /* largeur maximale pour desktop */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;         /* réduit un peu sur tablette */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 120px;         /* réduit encore sur smartphone */
+  }
+}
+
+.content {
+  flex: 1;                /* prend tout le reste de l'espace */
+  overflow-x: auto;       /* évite débordement horizontal */
+}

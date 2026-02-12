@@ -1,8 +1,10 @@
 import { ChangeDetectorRef, Component, inject, OnInit, TemplateRef } from '@angular/core';
 import { BookService } from '../../book/book.service';
 import { Book } from '../../book/book.models';
+import { IMG_PATH } from '../../../environments/environments';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -16,20 +18,35 @@ export class BookComponent implements OnInit {
 
   books: Book[] = [];
   bookSelected!: Book;
+  imgPath = IMG_PATH;
 
   private modalService = inject(NgbModal);
 
 
-  constructor(private book : BookService, private cdr: ChangeDetectorRef) {
+  constructor(private bookService : BookService, private cdr: ChangeDetectorRef, private route: ActivatedRoute) {
     
   }
 
   ngOnInit(): void {
-    this.loadBooks();
+
+    this.route.queryParams.subscribe(params => {
+
+      const query = params['q'];
+
+      if (query && query.trim() !== '') {
+        this.bookService.searchBooks(query)
+          .subscribe(data => {
+            this.books = data;
+            this.cdr.detectChanges();
+          });
+      } else {
+        this.loadBooks();
+      }
+    });
   }
 
   loadBooks(){
-    this.book.getAllBooks().subscribe({
+    this.bookService.getAllBooks().subscribe({
       next : (data) => {
         this.books = data;
         this.cdr.detectChanges();
@@ -46,7 +63,6 @@ export class BookComponent implements OnInit {
       centered: true,
       size: 'lg' // sm | lg | xl
     });
-    console.log(this.bookSelected);
   }
 
 }

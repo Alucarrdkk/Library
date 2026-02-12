@@ -1,0 +1,30 @@
+.col {
+    border: 1px solid var(--primary-color);
+    height: 10vh;
+    word-wrap: break-word;   /* coupe les mots trop longs */
+    overflow-wrap: break-word;
+}
+
+.frame {
+    height: 10vh;
+    overflow: scroll; /* empêche tout débordement */
+}
+
+.img-container {
+  width: 30vw;   /* 30% de la largeur de l'écran */
+  height: 10vh;  /* proportionnelle à la largeur */
+  max-width: 100%; /* ne dépasse jamais le parent */
+  overflow: hidden; /* empêche le débordement */
+  padding: 5px;
+}
+
+.responsive-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* remplit le conteneur sans dépasser */
+}
+
+.btn {
+    height: 5vh;
+    width: 10vh;
+}

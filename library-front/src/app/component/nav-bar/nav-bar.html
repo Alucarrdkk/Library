@@ -1,12 +1,25 @@
-<nav class="navbar gcolor">
+<nav class="navbar">
   <div class="container-fluid">
-    <a class="navbar-brand">Library</a>
-    <form class="d-flex w-50" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>
-    </form>
+    <img src="logo/logo_library.png" class="card-img-top" alt="Not Found" style="height: 50px; width: 50px;">
+<form class="d-flex w-50"
+      (ngSubmit)="onSearch()"
+      #searchForm="ngForm">
+
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Search..."
+    [(ngModel)]="searchText"
+    name="search"
+    required>
+
+  <button type="submit" hidden></button>
+
+</form>
     <div>
-        <i class="bi bi-person-fill"></i>
+        <i class="bi bi-person-fill" (click)="openModal()"></i>
         <i class="bi bi-bag-fill"></i>
+        <i class="bi bi-clipboard-data-fill" (click)="navigate('dashboard')"></i>
     </div>
   </div>
 </nav>

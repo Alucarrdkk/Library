@@ -22,11 +22,11 @@ public class Book {
     @Column(name="description")
     private String description;
 
+    @Column(name="imgPath")
+    private String imgPath;
+
     // @Column(name="category")
     // private String category;
-
-    // @Column(name="imagePath")
-    // private String imagePath;
 
     // @Column(name="copy")
     // private int copy;
@@ -66,4 +66,13 @@ public class Book {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
 }

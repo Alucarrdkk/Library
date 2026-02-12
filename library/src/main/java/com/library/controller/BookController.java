@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.library.dataAccess.entity.Book;
@@ -33,6 +34,11 @@ public class BookController {
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
+    }
+
+    @GetMapping("/search")
+    public List<Book> searchBooks(@RequestParam("q") String keyword) {
+        return bookService.searchBooks(keyword);
     }
     
     

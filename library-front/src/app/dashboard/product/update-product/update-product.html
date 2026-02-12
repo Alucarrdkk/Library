@@ -1,0 +1,20 @@
+
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+        <div class="d-flex">
+
+        <div class="me-3 flex-shrink-0">
+            <img [src]="imgPath + book.imgPath" alt="Produit" class="img-fluid" style="max-width: 200px;">
+        </div>
+
+        <div class="flex-grow-1">
+            <h1 class="modal-title">{{book.title}}</h1>
+            <h3>({{book.author}})</h3>
+            <p>{{book.description}}</p>
+            <hr>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

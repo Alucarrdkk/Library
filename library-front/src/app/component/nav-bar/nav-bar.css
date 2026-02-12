@@ -1,5 +1,6 @@
 .navbar {
     padding: 20px 50px;
+    background-color: var(--primary-color);
 }
 
 .bi {

@@ -1,52 +1,49 @@
 <h1><em>Books :</em></h1>
-<div class="row row-cols-1 row-cols-md-6 g-4">
-    @for (book of books; track book.isbn) 
-    {
-        <div class="col">
-            <div class="card" style="width: 13rem; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-                <div class="px-2 pt-2">
-                    <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" class="card-img-top" alt="...">
-                    <button class="btn btn-outline-primary btn-overlay mb-2 me-2" (click)="openModal(content, book)">
-                      Aperçu
-                    </button>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{book.title}}</h5>
-                    <div class="d-flex justify-content-between">
-                        <p class="align-bottom">10$</p>
-                        <a href="#" class="btn btn-success "><i class="bi bi-bag-plus-fill"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
+<div class="container-fluid text-center my-4">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 row-cols-xxl-6  g-5">
+      @for (book of books; track book.isbn) 
+      {
+          <div class="col-md-4 col-sm-6 col-sm-6 g-6">
+              <div class="card h-100 shadow-sm position-relative" style=" box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                  <div class="px-2 pt-2 position-relative">
+                      <img [src]="imgPath + book.imgPath" class="card-img-top" alt="Not Found">
+                      <button class="btn btn-overlay mb-2 me-2" (click)="openModal(content, book)">
+                        Preview
+                      </button>
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                      <h5 class="card-title text-center">{{book.title}}</h5>
+                      <div class="d-flex justify-content-between mt-auto">
+                          <p class="align-bottom">10$</p>
+                          <a href="#" class="btn btn-success"><i class="bi bi-bag-plus-fill"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      }
+  </div>
 </div>
 
 
+
+<!-- Modal -->
 <ng-template #content let-modal>
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content p-3">
       <div class="d-flex">
-        <!-- Image à gauche -->
+
         <div class="me-3 flex-shrink-0">
-          <img src="img/Shingeki_no_Kyojin_manga_volume_1.jpg" alt="Produit" class="img-fluid" style="max-width: 200px;">
+          <img [src]="imgPath + bookSelected.imgPath" alt="Produit" class="img-fluid" style="max-width: 200px;">
         </div>
 
-        <!-- Contenu à droite -->
         <div class="flex-grow-1">
-          <!-- Titre -->
           <h1 class="modal-title">{{bookSelected.title}}</h1>
-
-          <!-- Texte descriptif -->
+          <h3>({{bookSelected.author}})</h3>
           <p>{{bookSelected.description}}</p>
-
-          <!-- Barre horizontale -->
           <hr>
-
-          <!-- Bouton -->
-          <button type="button" class="btn btn-success" (click)="modal.close()">
-            Ajouter au panier
-          </button>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn" type="button" (click)="modal.close()">Add to basket</button>
+          </div>
         </div>
       </div>
     </div>
