@@ -1,34 +1,35 @@
 <div class="modal-dialog modal-lg modal-dialog-centered m-0">
     <div class="modal-content p-3">
         
-        <form [formGroup]="form" class="row g-3">
+        <form class="row g-3">
             <div class="col-md-6">
                 <label for="inputIsbn" class="form-label">ISBN</label>
-                <input type="text" class="form-control" id="inputIsbn" formControlName="isbn">
+                <input type="text" class="form-control" id="inputIsbn">
             </div>
             <div class="col-md-6">
                 <label for="inputTitle" class="form-label">Title</label>
-                <input type="text" class="form-control" id="inputTitle" formControlName="title">
+                <input type="text" class="form-control" id="inputTitle">
             </div>
             <div class="col-6">
                 <label for="inputAuthor" class="form-label">Author</label>
-                <input type="text" class="form-control" id="inputAuthor" formControlName="author">
+                <input type="text" class="form-control" id="inputAuthor">
             </div>
             <div class="col-6">
                 <label for="inputPrice" class="form-label">Price</label>
-                <input type="text" class="form-control" id="inputPrice" formControlName="price">
+                <input type="text" class="form-control" id="inputPrice">
             </div>
             <div class="col-md-12">
                 <label for="inputDescription" class="form-label">Description</label>
-                <textarea type="text" class="form-control" id="inputDescription" formControlName="description"></textarea>
+                <textarea type="text" class="form-control" id="inputDescription"></textarea>
             </div>
             <div class="col-md-12">
                 <label for="formFile" class="form-label">Image</label>
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">
             </div>
             <div class="col-12 d-flex justify-content-md-end">
-                <button type="submit" class="btn btn-success">Modify</button>
+                <button type="submit" class="btn btn-success">Add product</button>
             </div>
         </form>
+        
     </div>
 </div>

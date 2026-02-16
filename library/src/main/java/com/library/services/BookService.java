@@ -20,6 +20,10 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    public void deleteById(Integer  id){
+        bookRepository.deleteById(id);
+    }
+
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }

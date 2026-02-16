@@ -1,19 +1,5 @@
 .sidebar {
-  width: 600px;          /* largeur par défaut (plus grande que 200px) */
-  min-width: 180px;      /* largeur minimale pour mobile */
-  max-width: 600px;      /* largeur maximale pour desktop */
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 180px;         /* réduit un peu sur tablette */
-  }
-}
-
-@media (max-width: 480px) {
-  .sidebar {
-    width: 180px;         /* réduit encore sur smartphone */
-  }
+  flex: 0 0 clamp(100px, 10vw, 200px);
 }
 
 .content {
@@ -22,11 +8,22 @@
   overflow-y: hidden;     /* empêche scroll horizontal/vertical */
 }
 
-.menu-link {
+.main-menu {
   display: block;
   padding: 10px 20px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: all 0.2s;
+}
+
+.second-menu {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s;
+  cursor: pointer;
 }

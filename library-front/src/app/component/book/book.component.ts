@@ -20,10 +20,8 @@ export class BookComponent implements OnInit {
   bookSelected!: Book;
   imgPath = IMG_PATH;
 
-  private modalService = inject(NgbModal);
 
-
-  constructor(private bookService : BookService, private cdr: ChangeDetectorRef, private route: ActivatedRoute) {
+  constructor(private bookService : BookService, private cdr: ChangeDetectorRef, private route: ActivatedRoute , private modaleService : NgbModal) {
     
   }
 
@@ -59,7 +57,7 @@ export class BookComponent implements OnInit {
 
   openModal(content: any, book: Book) {
     this.bookSelected = book;
-    this.modalService.open(content, {
+    this.modaleService.open(content, {
       centered: true,
       size: 'lg' // sm | lg | xl
     });

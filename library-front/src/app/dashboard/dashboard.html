@@ -1,4 +1,4 @@
-<div class="d-flex vh-100 content">
+<div class="d-flex flex-grow-1 content">
 
   <div class="sidebar bg-light border-end p-3">
     <div class="d-flex align-items-center gap-3 justify-content-center">
@@ -10,12 +10,17 @@
     <div class="menu-container d-flex justify-content-center align-items-center vh-100">
 
       <ul class="list-unstyled text-center">
-        <li class="mb-3"><a href="dashboard" class="menu-link">Products</a></li>
-        <li class="mb-3"><a href="#" class="menu-link">.......</a></li>
-        <li class="mb-3"><a href="#" class="menu-link">.......</a></li>
-        <li class="mb-3"><a href="#" class="menu-link">.......</a></li>
-        <li class="mb-3"><a href="#" class="menu-link">.......</a></li>
-        <li class="mb-3"><a href="#" class="menu-link">.......</a></li>
+        <li class="mb-3">
+          <a href="dashboard" class="main-menu">Products</a>
+          <ul>
+            <li class="mb-3"><a class="second-menu" (click)="openCreateModal()">Add</a></li>
+          </ul>
+        </li>
+        <li class="mb-3"><a href="#" class="main-menu">.......</a></li>
+        <li class="mb-3"><a href="#" class="main-menu">.......</a></li>
+        <li class="mb-3"><a href="#" class="main-menu">.......</a></li>
+        <li class="mb-3"><a href="#" class="main-menu">.......</a></li>
+        <li class="mb-3"><a href="#" class="main-menu">.......</a></li>
       </ul>
 
     </div>

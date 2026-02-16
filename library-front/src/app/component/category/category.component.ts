@@ -15,7 +15,7 @@ export class CategoryComponent {
 
   categories: Category[] = [];
 
-  constructor(private category : CategoryService, private cdr: ChangeDetectorRef) {
+  constructor(private categoryService : CategoryService, private cdr: ChangeDetectorRef) {
     
   }
 
@@ -25,7 +25,7 @@ export class CategoryComponent {
   }
 
   loadCategories(){
-    this.category.getAllCategory().subscribe({
+    this.categoryService.getAllCategory().subscribe({
       next : (data) => {
         console.log(data);
         this.categories = data;

@@ -4,6 +4,8 @@ import { Book } from '../../book/book.models';
 import { IMG_PATH } from '../../../environments/environments';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProduct } from './update-product/update-product';
+import { SeeProduct } from './see-product/see-product';
+import { DeleteProduct } from './delete-product/delete-product';
 
 @Component({
   selector: 'app-product',
@@ -14,7 +16,6 @@ import { UpdateProduct } from './update-product/update-product';
 export class Product {
 
   books: Book[] = [];
-  bookSelected!: Book;
   imgPath = IMG_PATH;
 
   constructor(private bookService : BookService, private cdr: ChangeDetectorRef, private modalService: NgbModal) {}
@@ -23,12 +24,28 @@ export class Product {
     this.loadBooks();
   }
   
-  openModal(book : Book) {
-    this.bookSelected = book;
+  openSeeModal(book : Book) {
+    const modalRef = this.modalService.open(SeeProduct, {
+      size: 'lg',
+      centered: true
+    });
+    modalRef.componentInstance.book = book;
+  }
+
+  openUpdateModal(book : Book) {
     const modalRef = this.modalService.open(UpdateProduct, {
       size: 'lg',
       centered: true
     });
+    modalRef.componentInstance.book = book;
+  }
+
+  openDeleteModal(book: Book) {
+    const modalRef = this.modalService.open(DeleteProduct, {
+      size: 'lg',
+      centered: true
+    });
+    console.log("test");
     modalRef.componentInstance.book = book;
   }
 

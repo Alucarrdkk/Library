@@ -1,7 +1,11 @@
 package com.library.dataAccess.entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,6 +14,10 @@ import jakarta.persistence.Table;
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private Integer id;
+
     @Column(name="isbn")
     private String isbn;
 
@@ -25,6 +33,9 @@ public class Book {
     @Column(name="imgPath")
     private String imgPath;
 
+    @Column(precision = 10, scale = 2)
+    private BigDecimal price;
+
     // @Column(name="category")
     // private String category;
 
@@ -35,6 +46,15 @@ public class Book {
     // private int copyAvailable;
     
     // --- GETTERS & SETTERS ---
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getIsbn() {
         return isbn;
     }
@@ -73,6 +93,14 @@ public class Book {
 
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
 }

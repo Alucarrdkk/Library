@@ -1,18 +1,24 @@
-.col {
-    border: 1px solid var(--primary-color);
-    height: 10vh;
-    word-wrap: break-word;   /* coupe les mots trop longs */
-    overflow-wrap: break-word;
+.frame {
+    height: 15vh; /* empêche tout débordement */
+    overflow-y: scroll;
 }
 
-.frame {
-    height: 10vh;
-    overflow: scroll; /* empêche tout débordement */
+.element {
+    border-width: 0px 1px 1px 0px; /* 25px top, 10px right, 4px bottom and 35px left */
+    border-style: solid;
+    height: 13vh;
+    word-wrap: break-word;   /* coupe les mots trop longs */
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.element:first-child {
+  border-width: 0px 1px 1px 1px;
 }
 
 .img-container {
   width: 30vw;   /* 30% de la largeur de l'écran */
-  height: 10vh;  /* proportionnelle à la largeur */
+  height: 13vh;  /* proportionnelle à la largeur */
   max-width: 100%; /* ne dépasse jamais le parent */
   overflow: hidden; /* empêche le débordement */
   padding: 5px;
@@ -25,6 +31,35 @@
 }
 
 .btn {
-    height: 5vh;
-    width: 10vh;
+    height: 4vh;
+    width: 5vh;
+}
+
+.table-title {
+  height: 10vh;
+  background-color: rgb(219, 218, 218);
+}
+
+.table-title-element {
+    border-width: 1px 1px 0px 0px; /* 25px top, 10px right, 4px bottom and 35px left */
+    border-style: solid;
+    height: 10vh;
+    word-wrap: break-word;   /* coupe les mots trop longs */
+    overflow-wrap: break-word;
+}
+
+.table-title-element:first-child {
+  border-width: 1px 1px 0px 1px;
+}
+
+.table {
+  border: 1px solid gray;
+}
+
+.line:nth-child(2n) {
+  background-color: #f3f1f1;
+}
+
+.btn-warning {
+  color: white;
 }

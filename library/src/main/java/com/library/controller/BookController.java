@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/books")
@@ -31,6 +34,12 @@ public class BookController {
         return bookService.createBook(book);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteBook(@PathVariable Integer  id) {
+        bookService.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+    
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
@@ -40,7 +49,5 @@ public class BookController {
     public List<Book> searchBooks(@RequestParam("q") String keyword) {
         return bookService.searchBooks(keyword);
     }
-    
-    
     
 }
