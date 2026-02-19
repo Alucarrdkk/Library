@@ -37,7 +37,13 @@ export class Product {
       size: 'lg',
       centered: true
     });
+
     modalRef.componentInstance.book = book;
+
+    modalRef.componentInstance.bookUpdated.subscribe(() => {
+      console.log("update");
+      this.loadBooks();
+    });
   }
 
   openDeleteModal(book: Book) {

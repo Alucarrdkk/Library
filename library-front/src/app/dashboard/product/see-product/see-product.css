@@ -1,0 +1,8 @@
+.modal-content {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.modal-header {
+    border: 0px;
+}

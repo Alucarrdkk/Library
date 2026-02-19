@@ -8,6 +8,7 @@ import com.library.dataAccess.entity.Book;
 import com.library.services.BookService;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -35,9 +36,20 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteBook(@PathVariable Integer  id) {
+    public ResponseEntity<?> deleteBook(@PathVariable Integer id) {
         bookService.deleteById(id);
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Book> updateUser(
+            @PathVariable Integer id,
+            @RequestBody Book book) {
+        System.out.println(id);
+        System.out.println(book.getTitle());
+        System.out.println(book.getPrice());
+        Book updatedUser = bookService.updateBook(id, book);
+        return ResponseEntity.ok(updatedUser);
     }
     
     @GetMapping
